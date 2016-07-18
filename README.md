@@ -191,10 +191,17 @@ Mecanismo que serve para controle de concorrência e para a garantia de atomicid
 
 Como o nome sugere, são realizadas duas fases:
 
-1. *Expanding*, na qual os *locks* são -
+1. *Expanding*, na qual os *locks* são adquiridos
+2. *Shrinking*, na qual os *locks* são liberados
+
+E tem duas variações:
+
+* Strict Two Phase Locking: Na qual na fase de *Shrinking* os *write locks* são liberados apenas no final da transação, mas os read locks podem ser liberados no decorrer da mesma;
+* Strong Strict Two Phase Locking: Na qual na fase de *Shrinking*, tando os *read* quanto os *write locks* são liberados apenas no final da transação.
 
 ## 14. 
 
+*Two Phase Commit* (2PC):
 
 ## 15. 
 

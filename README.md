@@ -57,7 +57,7 @@ Dessa maneira, *B* é sincronizado a *A*.
 
 ## 6. 
 
-O Network Time Prtocol (NTP) funciona para sincronizar relógios com o padrão UTC e é estrutuado com uma hierarquia de servidores e clientes. No topo da hierarquia estão os computadores com relógios de maior precisão. Descendo na hierarquia, a precisão diminui.
+O Network Time Protocol (NTP) funciona para sincronizar relógios com o padrão UTC e é estrutuado com uma hierarquia de servidores e clientes. No topo da hierarquia estão os computadores com relógios de maior precisão. Descendo na hierarquia, a precisão diminui.
 
 Um determinado computador em um nível da hierarquia solicita a hora periódicamente para três ou mais servidores de uma hierarquia superior. Ele faz então uma filtragem dos resultados, para remover *outliers*, tira uma média e ajusta sua taxa de progressão para se ajustar suavemente ao horário padrão.
 
@@ -135,20 +135,63 @@ Um determinado computador em um nível da hierarquia solicita a hora periódicam
 ## 8. 
 
 
+
 ## 9. 
 
+**Vantagem**: Para um sistema com filas FIFO e sem prioridade o algoritmo é **correto** (garante o acesso exclusivo) e **justo** com a troca de apenas três mensagens por acesso à região crítica;
+**Desvantagem**: O algoritmo tem um ponto unico de falha, que é o coordenador da exclusão mútua. Caso o mesmo falhe de alguma maneira, o sistema falha junto.
 
 ## 10. 
 
+É interessante que um nó conheça seus dois próximos vizinhos pois no caso de falha de um nó o anel não será quebrado, pois o nó que se conectava com o que falhou só precisa pular o mesmo.
+Para o caso de falhas de mais vizinhos, seria vantajoso conhecer mais do uqe dois vizinhos.
 
 ## 11. 
 
+**ACID** é a sigla que representa o conjunto de propriedades que um sistema transacional deve apresentar. O significado de suas letras é:
+
+**"A"** de *Atomicity*: Uma transação ou é aplicada por inteiro ou é abortada por inteiro sem modificar o estado global;
+
+**"C"** de *Consistency*: Toda transação preserva as *propriedades* do estado global;
+
+**"I"** de *Isolation*: Ao *ler ou escrever* dados, transação executa como se fosse a única no sistema (**transações ocorrem uma depois da outra**);
+
+**"D"** de *Durability*: Ao concluir uma transação (*commit*), sistema passa a ter um novo estado global que permanece (independente de interferências externas, como falta de energia ou falhas de equipamentos).
 
 ## 12. 
 
+Com a implementação pode ocorrer um *deadlock*. Imaginemos que dois clientes $C_1$ e $C_2$ querem fazer as operações `transferencia(a, b, v)` e `transferencia(a, b, v)` respectivamente: 
+
+* $C_1$ faz `acquire(a)`e  passa por `se (retirada(a, v) >= 0)`;
+* Enquanto isso $C_2$ faz `acquire(b)` e passa por `se (retirada(b, v) >= 0)`;
+* $C_1$ vai ficar esperando pelo `acquire(b)` e $C_2$ vai ficar esperando pelo `acquire(a)`, para sempre.
+
+Eu resolveria o código fazendo os dois `acquire()` juntos, usando alguma ordenação global:
+
+```
+transferencia(c1, c2, v) {
+	acquire(min(c1, c2))
+	acquire(max(c1, c2))
+	se (retirada(c1, v) >= 0)
+		deposito(c2, v)
+		release(c1)
+		release(c2)
+		retorna 0
+	release(c1)
+	release(c2)
+	retorna -1	
+}
+```
 
 ## 13. 
 
+*Two Phase Locking* (2PL): 
+
+Mecanismo que serve para controle de concorrência e para a garantia de atomicidade. Faz o uso de **dois tipos de lock para cada objeto**, *read lock* (permitem outros *read locks* simultâneos, mas não um *write lock*) e *write lock* (não permite nenhum tipo de *lock* simultâneo).
+
+Como o nome sugere, são realizadas duas fases:
+
+1. *Expanding*, na qual os *locks* são -
 
 ## 14. 
 
@@ -186,4 +229,9 @@ Um determinado computador em um nível da hierarquia solicita a hora periódicam
 * aula 11
 	* Falhas e Semântica em RPC;
 	* RMI: vantagens e desvantagens
-* 
+* aula 16:
+	* Garantindo Ordem Total 
+	* Questão 8: Totally ordered multicast
+* aula 19:
+	* Tudo
+*   

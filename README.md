@@ -83,7 +83,7 @@ Um determinado computador em um nível da hierarquia solicita a hora periódicam
 	* $k \parallel n$
 	* $k \parallel u$
 	* $n \parallel u$
-4. Relógio para cada evento:
+4. Relógios de Lamport para cada evento:
 	* L(a) = 1
 	* L(b) = 2
 	* L(c) = 3
@@ -105,8 +105,33 @@ Um determinado computador em um nível da hierarquia solicita a hora periódicam
 	* L(s) = 3
 	* L(t) = 5
 	* L(u) = 7
-5. 
-
+5. Relógios de vetor:
+	* V(a) = [1,0,0,0]
+	* V(b) = [2,1,0,0]
+	* V(c) = [3,1,0,0]
+	* V(d) = [4,1,0,0]
+	* V(e) = [5,5,1,2]
+	* V(f) = [6,5,5,4]
+	* V(g) = [7,5,5,4]
+	* V(h) = [0,1,0,0]
+	* V(i) = [0,3,1,0]
+	* V(j) = [1,4,1,2]
+	* V(k) = [1,5,1,2]
+	* V(l) = [4,6,1,5]
+	* V(m) = [0,0,1,0]
+	* V(n) = [0,3,2,0]
+	* V(o) = [4,3,4,4]
+	* V(p) = [4,3,5,4]
+	* V(q) = [7,5,6,4]
+	* V(r) = [1,0,0,1]
+	* V(s) = [1,0,0,2]
+	* V(t) = [4,1,0,3]
+	* V(u) = [4,1,0,5]
+6. Exemplo onde para exenos $x$ e $y$, $L(x) < L(y)$ e $V(y) < V(x)$:
+	* 
+7. Se $L(x) < L(y)$: Nada pode ser concluído;
+8. Se $V(x) < V(y)$: Podemos concluir que $x \rightarrow y$
+	
 ## 8. 
 
 

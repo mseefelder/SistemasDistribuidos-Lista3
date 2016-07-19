@@ -1,4 +1,4 @@
-% Sistemas Distribuidos
+% Sistemas Distribuídos
 % Lista3
 % Aluno: Marcos Seefelder de Assis Araujo
 

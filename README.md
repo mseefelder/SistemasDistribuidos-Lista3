@@ -243,17 +243,25 @@ Para lidar com *deadlocks* é definido um *timeout* para a espera por *locks*, q
 * **4**: P2: W(x,2) $\rightarrow$ P3: R(x,2) $\rightarrow$ P1: W(x,1) $\rightarrow$ P3: R(x,1)
 * **6**: P4 (tudo) $\rightarrow$ P1 (tudo) $\rightarrow$ P3 (tudo) $\rightarrow$ P2 (tudo)
 
-
 ## 19. 
+
+**Confiabilidade** (*reliability*) diz respeito à **duração** de tempo pela qual um sistema funciona antes de falhar. **Disponibilidade** (*availability*) diz respeito à **fração** de tempo pela qual sistema está operacional.
+
+Um sistema pode ter um MTTF (*Mean Time To Failure*) de 10 anos (alta confiabilidade) e um MTTR (*Mean Time To Repair*) de 8 anos (baixa disponibilidade).
 
 
 ## 20. 
 
+Para um componente, temos disponibilidade de aproximadamente 99.85%.
+Utilizando a fórmula $p_k = 1 - (1 - p)^k$ onde $p_k$ é a disponibilidade resultante de um sistema com $k$ componentes de disponibilidade $p$, se utilizarmos 2 componentes, obtemos uma disponibilidade de aproximadamente 99,9998%. Portanto, **2 componentes são necessários**.
 
 ## 21. 
 
+1. Depende. Se não ocorrer nenhuma falha na mesma coluna, para cada nível haverá sempre uma maioria funcionando e o resultado será correto. Porém, se ocorrer de duas das falhas ocorrerem na mesma coluna (dois votadores ou dois componentes), o sistema falha.
+2. O sistema falha, pois no próximo nível apenas um componente funcionará corretamente e o resultado no nível não terá maioria.
 
-## 22. 
+## 22.
+
 
 
 ## 23. 

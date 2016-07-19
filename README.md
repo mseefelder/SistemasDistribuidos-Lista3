@@ -253,7 +253,11 @@ Um sistema pode ter um MTTF (*Mean Time To Failure*) de 10 anos (alta confiabili
 ## 20. 
 
 Para um componente, temos disponibilidade de aproximadamente 99.85%.
-Utilizando a fórmula $p_k = 1 - (1 - p)^k$ onde $p_k$ é a disponibilidade resultante de um sistema com $k$ componentes de disponibilidade $p$, se utilizarmos 2 componentes, obtemos uma disponibilidade de aproximadamente 99,9998%. Portanto, **2 componentes são necessários**.
+Utilizando a fórmula 
+
+$p_k = 1 - (1 - p)^k$ 
+
+onde $p_k$ é a disponibilidade resultante de um sistema com $k$ componentes de disponibilidade $p$, se utilizarmos 2 componentes, obtemos uma disponibilidade de aproximadamente 99,9998%. Portanto, **2 componentes são necessários**.
 
 ## 21. 
 
@@ -266,7 +270,7 @@ Pois as mesmas são imprevisíveis e não são fáceis de se detectar. Uma falha
 
 ## 23. 
 
-
+Se um particiante recebe uma mensagem $x$ do coordenador e uma mensagem $y$ do bizantino, ele não poderá chegar a uma conclusão por maioria simples. Portanto, não ocorre um consenso entre esse participante e o coordenador (os não-bizantinos).
 
 
 ## Revisar:

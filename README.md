@@ -232,8 +232,16 @@ Para lidar com *deadlocks* é definido um *timeout* para a espera por *locks*, q
 
 ## 17. 
 
+*read-write*: ocorre quando a leitura e escrita no mesmo dado ocorrem em instâncias diferentes em processos diferentes e a leitura retorna um valor que já está desatualizado devido À escrita recente;
+
+*write-write*: dois ou mais processos tentam escrever no mesmo dado ao mesmo tempo e o mesmo fica com um valor diferente nas instâncias sendo indefinido qual o valor certo.
 
 ## 18. 
+
+* **1**: P2: R(x,0) $\rightarrow$ P1: W(x,1) $\rightarrow$ P2: R(x,1)
+* **3**: P1: W(x,1) $\rightarrow$ P3: R(x,1) $\rightarrow$ P2: W(x,2) $\rightarrow$ P3: R(x,2)
+* **4**: P2: W(x,2) $\rightarrow$ P3: R(x,2) $\rightarrow$ P1: W(x,1) $\rightarrow$ P3: R(x,1)
+* **6**: P4 (tudo) $\rightarrow$ P1 (tudo) $\rightarrow$ P3 (tudo) $\rightarrow$ P2 (tudo)
 
 
 ## 19. 

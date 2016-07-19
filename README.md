@@ -1,6 +1,6 @@
-% SistemasDistribuidos - Lista3
+% Sistemas Distribuidos
+% Lista3
 % Aluno: Marcos Seefelder de Assis Araujo
-% 19-07-2016
 
 ## 1. 
 * Processo que chama e processo que executa função estão em máquinas diferentes, acarretando em espaços de endereçamento e ambiente computacional distintos;

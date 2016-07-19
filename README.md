@@ -127,7 +127,7 @@ Um determinado computador em um nível da hierarquia solicita a hora periódicam
 	* V(s) = [1,0,0,2]
 	* V(t) = [4,1,0,3]
 	* V(u) = [4,1,0,5]
-6. Exemplo onde para exenos $x$ e $y$, $L(x) < L(y)$ e $V(y) < V(x)$:
+6. Exemplo onde para eventos $x$ e $y$, $L(x) < L(y)$ e $V(y) < V(x)$:
 	* 
 7. Se $L(x) < L(y)$: Nada pode ser concluído;
 8. Se $V(x) < V(y)$: Podemos concluir que $x \rightarrow y$
@@ -139,6 +139,7 @@ Um determinado computador em um nível da hierarquia solicita a hora periódicam
 ## 9. 
 
 **Vantagem**: Para um sistema com filas FIFO e sem prioridade o algoritmo é **correto** (garante o acesso exclusivo) e **justo** com a troca de apenas três mensagens por acesso à região crítica;
+
 **Desvantagem**: O algoritmo tem um ponto unico de falha, que é o coordenador da exclusão mútua. Caso o mesmo falhe de alguma maneira, o sistema falha junto.
 
 ## 10. 
@@ -225,6 +226,9 @@ Para lidar com *deadlocks* é definido um *timeout* para a espera por *locks*, q
 
 ## 16. 
 
+1. Se participante falha em INIT: O coordenador dá *timeout* esperando a resposta e envia um **abort**;
+2. Se participante falha em READY: Transação continua normalmente. Ao se recuperar do erro, participante decobre se foi **commit** ou **abort** e efetua ou não a transação;
+3. Se coordenador falha em WAIT: Caso algum outro participante já tenha recebido a ordem de **commit** ou **abort**, participantes copiam. Se estiverem todos em estado READY, não tem como decidir o que fazer e aguardam de forma bloqueante, eperando a recuperação do coordenador.
 
 ## 17. 
 

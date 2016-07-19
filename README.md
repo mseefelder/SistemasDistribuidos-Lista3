@@ -3,8 +3,7 @@
 % Aluno: Marcos Seefelder de Assis Araujo
 
 ## 1. 
-* Processo que chama e processo que executa função estão em máquinas diferentes, acarretando em espaços de endereçamento e ambiente computacional distintos;
-* Representação de dados diferentes (Little Endian, Big Endian);
+* Processo que chama e processo que executa função estão em máquinas diferentes, acarretando em espaços de endereçamento e ambiente computacional distintos o que pode significar, por exemplo, em representação de dados de maneiras distintas (Little Endian, Big Endian);
 * Falhas de rede e das máquinas envolvidas.
 
 ### Extra: Little Endian vs. Big Endian

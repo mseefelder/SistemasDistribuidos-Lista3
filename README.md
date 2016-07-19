@@ -1,4 +1,6 @@
-# SistemasDistribuidos-Lista3
+% SistemasDistribuidos - Lista3
+% Aluno: Marcos Seefelder de Assis Araujo
+% 19-07-2016
 
 ## 1. 
 * Processo que chama e processo que executa função estão em máquinas diferentes, acarretando em espaços de endereçamento e ambiente computacional distintos;
@@ -13,11 +15,11 @@ Sistemas representam vetores de bytes de maneiras diferentes. Considerando que t
 * Little Endian (**LSB primeiro**): Vai representar na memória (m[]) como m[0] = 0D; m[1] = 0C; m[2] = 0B; m[3] = 0A; 
 
 ## 2. 
-	1. Cliente faz chamada de função para servidor de RPC e espera (bloqueante) mensagem de aceitação;
-	2. Servidor de RPC recebe chamada de função e envia mensagem de aceitação para cliente. Servidor passa a executar procedimento local...;
-	3. Cliente recebe aceitação, a chamada de função retorna mas ainda não há resultado. Cliente continua sua execução...;
-	4. Ao terminar o procedimento, servidor envia resultado ao cliente via RPC;
-	5. Mensagem de resultado gera uma interrupção no cliente, que por sua vez envia o reconhecimento de que recebeu a mensagem ao servidor.
+1. Cliente faz chamada de função para servidor de RPC e espera (bloqueante) mensagem de aceitação;
+2. Servidor de RPC recebe chamada de função e envia mensagem de aceitação para cliente. Servidor passa a executar procedimento local...;
+3. Cliente recebe aceitação, a chamada de função retorna mas ainda não há resultado. Cliente continua sua execução...;
+4. Ao terminar o procedimento, servidor envia resultado ao cliente via RPC;
+5. Mensagem de resultado gera uma interrupção no cliente, que por sua vez envia o reconhecimento de que recebeu a mensagem ao servidor.
 
 ### Extra: *Marshalling*, *Unmarshalling* e *Stubs*
 
@@ -128,13 +130,13 @@ Um determinado computador em um nível da hierarquia solicita a hora periódicam
 	* V(t) = [4,1,0,3]
 	* V(u) = [4,1,0,5]
 6. Exemplo onde para eventos $x$ e $y$, $L(x) < L(y)$ e $V(y) < V(x)$:
-	* 
+	Não existe, pois o relógio de vetor não discorda de lamport na ordenação. 
 7. Se $L(x) < L(y)$: Nada pode ser concluído;
 8. Se $V(x) < V(y)$: Podemos concluir que $x \rightarrow y$
 	
 ## 8. 
 
-
+Questão feita à mão no final do documento.
 
 ## 9. 
 
@@ -271,16 +273,3 @@ Pois as mesmas são imprevisíveis e não são fáceis de se detectar. Uma falha
 ## 23. 
 
 Se um particiante recebe uma mensagem $x$ do coordenador e uma mensagem $y$ do bizantino, ele não poderá chegar a uma conclusão por maioria simples. Portanto, não ocorre um consenso entre esse participante e o coordenador (os não-bizantinos).
-
-
-## Revisar:
-
-* aula 11
-	* Falhas e Semântica em RPC;
-	* RMI: vantagens e desvantagens
-* aula 16:
-	* Garantindo Ordem Total 
-	* Questão 8: Totally ordered multicast
-* aula 19:
-	* Tudo
-*   

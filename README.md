@@ -201,10 +201,27 @@ E tem duas variações:
 
 ## 14. 
 
-*Two Phase Commit* (2PC):
+*Two Phase Commit* (2PC): O algoritmo de 2PL não serve para casos distribuídos, pois considera que o estado global está "centralizado". O 2PC é um protocolo usado para fazer **Commit atômico em sistemas de estado global distribuído**.
+
+O protocolo tem duas fases:
+
+1. Preparar e votar:
+	* Coordenador que quer realizar transação (**coordenador**) envia as subtransações adequadas aos demais processos (**participantes**);
+	* Cada processo executa 2PL para adquirir os *locks* necessários para a subtransação;
+	* Cada processo responde ao coordenador se pode ou não executar a transação 
+2. Executar:
+	* Coordenador recebe todas as respostas e envia:
+		* **commit** se todas forem positivas
+		* **abort** se houver alguma negativa
+	*  Participantes recebem a mensagem:
+		* caso seja **commit**, efetuam a transação, liberam os *locks* e retornam um OK
+		* caso seja **abort**, abortam a transação, liberam os *locks* e retornam um ok  
 
 ## 15. 
 
+O protocolo 2PC **não evita *deadlocks***, basta imaginar um caso em que ocorra a dependência cíclica dos *locks* levando os participantes a não poderem votar por estarem aguardando *locks* (ex.: `transf(a, b, v)` e `transf(b, a, v)`).
+
+Para lidar com *deadlocks* é definido um *timeout* para a espera por *locks*, que se estourado gera uma resposta negativa ao coordenador. Um coordenaor tenta então realiza a transação repetidamente, porém também é imposto um limite à essa repetição a fim de evitar *livelocks*.
 
 ## 16. 
 

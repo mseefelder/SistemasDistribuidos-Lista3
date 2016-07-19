@@ -262,9 +262,10 @@ Utilizando a fórmula $p_k = 1 - (1 - p)^k$ onde $p_k$ é a disponibilidade resu
 
 ## 22.
 
-
+Pois as mesmas são imprevisíveis e não são fáceis de se detectar. Uma falha bizantina pode passar despercebida, pois os resultados continuam sendo gerados, porém de maneira errada, podendo tornar incorreto o funcionamento do sistema do qual faz parte. Já uma *crash failure*, o componente que falhou para de interferir no sistema, pois simplesmente para de funcionar.
 
 ## 23. 
+
 
 
 
